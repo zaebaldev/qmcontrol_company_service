@@ -9,7 +9,6 @@ from core.config.api import ApiPrefix
 from core.config.app import AppConfig
 from core.config.cors import CorsConfig
 from core.config.database import DatabaseConfig
-from core.config.didox import DidoxConfig
 from core.config.gunicorn import GunicornConfig
 from core.config.logging import LoggingConfig
 from core.config.rabbitmq import RabbitConfig
@@ -38,7 +37,6 @@ class Settings(BaseSettings):
     cors: CorsConfig = CorsConfig()
     redis: RedisConfig
     rabbitmq: RabbitConfig
-    didox: DidoxConfig = DidoxConfig()
 
 
 settings = Settings()

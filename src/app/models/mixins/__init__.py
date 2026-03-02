@@ -1,4 +1,5 @@
 __all__ = (
+    "CoordinatesMixin",
     "CreatedAtMixin",
     "IntIdMixin",
     "IsActiveMixin",
@@ -8,6 +9,7 @@ __all__ = (
     "UuidIdMixin",
 )
 
+from .coordiantes_mixin import CoordinatesMixin
 from .created_at_mxin import CreatedAtMixin
 from .int_id_mixin import IntIdMixin
 from .is_active_mixin import IsActiveMixin
