@@ -1,17 +1,23 @@
-from sqlalchemy import Boolean, Integer, String, Text
+from sqlalchemy import Boolean, ForeignKey, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
-from app.models.mixins import CoordinatesMixin, IsActiveMixin, PhoneNumberMixin
+from app.models.mixins import (
+    CoordinatesMixin,
+    IsActiveMixin,
+    NameMixin,
+    PhoneNumberMixin,
+)
 
 
-class Company(Base, PhoneNumberMixin, IsActiveMixin, CoordinatesMixin):
+class Company(Base, NameMixin, PhoneNumberMixin, IsActiveMixin, CoordinatesMixin):
     _phone_number_nullable = True
     _phone_number_unique = False
     _phone_number_index = False
-    quarry_id: Mapped[int] = mapped_column(
-        Integer,
-        nullable=False,
+    _name_nullable = True
+    _name_primary_key = False
+    quarry: Mapped[str] = mapped_column(
+        ForeignKey("quarries.name"),
     )
     company_tin: Mapped[str] = mapped_column(
         String(24),

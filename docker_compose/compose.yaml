@@ -1,0 +1,9 @@
+name: qcontrol_company_service
+
+include:
+  - app.yaml
+
+networks:
+  company_service_network:
+    name: qcontrol_network
+    external: true

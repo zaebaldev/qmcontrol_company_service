@@ -10,8 +10,8 @@ from core.enums.car_position import CarPositionEnum
 class Camera(Base, NameMixin, CoordinatesMixin):
     _name_primary_key = True
     _name_unique = True
-    quarry_id: Mapped[int] = mapped_column(
-        ForeignKey("quarries.id"),
+    quarry: Mapped[str] = mapped_column(
+        ForeignKey("quarries.name"),
     )
     company_tin: Mapped[str] = mapped_column(
         ForeignKey("companies.company_tin"),

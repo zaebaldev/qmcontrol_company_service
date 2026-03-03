@@ -37,6 +37,7 @@ class Settings(BaseSettings):
     cors: CorsConfig = CorsConfig()
     redis: RedisConfig
     rabbitmq: RabbitConfig
+    integrations_service_url: str = "http://localhost:8001"
 
 
 settings = Settings()

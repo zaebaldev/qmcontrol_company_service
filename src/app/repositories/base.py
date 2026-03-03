@@ -64,7 +64,7 @@ class BaseRepository(Generic[T]):
         order_by: Optional[List[Union[str, Tuple[str, str]]]] = None,
         limit: Optional[int] = None,
         offset: Optional[int] = None,
-    ) -> list[Optional[T]]:
+    ) -> list[T]:
         """
         Get all objects with filtering, sorting and pagination.
 

@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: ./docker_build/app/Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      pg:
+        condition: service_healthy
+    volumes:
+      - ../src/alembic:/src/alembic
+    container_name: qcontrol_company_service_app
+    networks:
+      - company_service_network

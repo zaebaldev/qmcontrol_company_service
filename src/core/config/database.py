@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, PostgresDsn
 
 
 class SQLAlchemyConfig(BaseModel):
@@ -25,5 +25,7 @@ class DatabaseConfig(BaseModel):
     sqla: SQLAlchemyConfig = SQLAlchemyConfig()
 
     @property
-    def async_url(self) -> str:
-        return f"{self.driver}://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
+    def async_url(self) -> PostgresDsn:
+        return PostgresDsn(
+            f"{self.driver}://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
+        )

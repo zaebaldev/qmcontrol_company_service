@@ -46,9 +46,9 @@ class DatabaseHelper:
 
 
 db_helper = DatabaseHelper(
-    url=str(settings.db.url),
-    echo=settings.db.sqlalchemy.echo,
-    echo_pool=settings.db.sqlalchemy.echo_pool,
-    pool_size=settings.db.sqlalchemy.pool_size,
-    max_overflow=settings.db.sqlalchemy.max_overflow,
+    url=str(settings.db.async_url),
+    echo=settings.db.sqla.echo,
+    echo_pool=settings.db.sqla.echo_pool,
+    pool_size=settings.db.sqla.pool_size,
+    max_overflow=settings.db.sqla.max_overflow,
 )

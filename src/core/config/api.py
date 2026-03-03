@@ -4,6 +4,9 @@ from pydantic import BaseModel
 class ApiV1Prefix(BaseModel):
     prefix: str = "/v1"
     companies: str = "/companies"
+    cameras: str = "/cameras"
+    quarries: str = "/quarries"
+    carfo_types: str = "/cargo_types"
 
 
 class ApiPrefix(BaseModel):
