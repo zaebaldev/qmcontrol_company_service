@@ -1,13 +1,18 @@
 from sqlalchemy import Enum as SqlEnum
-from sqlalchemy import ForeignKey, String, text
+from sqlalchemy import ForeignKey, String, Text, text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
-from app.models.mixins import CoordinatesMixin, NameMixin
+from app.models.mixins import CoordinatesMixin, IsActiveMixin, NameMixin
 from core.enums.car_position import CarPositionEnum
 
 
-class Camera(Base, NameMixin, CoordinatesMixin):
+class Camera(
+    Base,
+    NameMixin,
+    CoordinatesMixin,
+    IsActiveMixin,
+):
     _name_primary_key = True
     _name_unique = True
     quarry: Mapped[str] = mapped_column(
@@ -28,4 +33,8 @@ class Camera(Base, NameMixin, CoordinatesMixin):
         default=CarPositionEnum.FORWARD,
         server_default=text("'FORWARD'"),
         nullable=False,
+    )
+    camera_url: Mapped[str] = mapped_column(
+        Text,
+        nullable=True,
     )

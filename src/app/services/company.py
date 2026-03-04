@@ -40,6 +40,7 @@ class CompanyService:
         company_data: CompanyCreate,
     ) -> CompanyRead:
         company = Company(
+            phone_number=company_data.phone_number,
             company_tin=company_data.company_tin,
             quarry=company_data.quarry,
             name=company_data.name,

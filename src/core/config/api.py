@@ -6,7 +6,7 @@ class ApiV1Prefix(BaseModel):
     companies: str = "/companies"
     cameras: str = "/cameras"
     quarries: str = "/quarries"
-    carfo_types: str = "/cargo_types"
+    cargo_types: str = "/cargo_types"
 
 
 class ApiPrefix(BaseModel):

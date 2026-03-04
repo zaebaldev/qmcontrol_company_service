@@ -1,5 +1,6 @@
 import asyncio
 import logging
+from http import HTTPStatus
 from typing import Any, Optional
 
 import aiohttp
@@ -119,7 +120,7 @@ class AiohttpClient:
                     "status": response.status,
                     "headers": dict(response.headers),
                     "body": body,
-                    "ok": response.status < 400,
+                    "ok": response.status < HTTPStatus.BAD_REQUEST,
                 }
 
         except aiohttp.ClientConnectorError as e:
