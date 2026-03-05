@@ -51,5 +51,6 @@ class CompanyCreate(CompanyBase):
 
 
 class CompanyRead(CompanyBase, FromAttributesMixin):
+    company_tin: str
     quarry: Optional[str] = None
     is_active: Optional[bool] = None
